@@ -1,12 +1,33 @@
 {
   "name": "lor-code",
+  "description": "An educational, production-grade AI coding agent built from scratch. Learn how tools like Claude Code work under the hood.",
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "bin": {
+    "lor": "./src/main.tsx"
+  },
+  "scripts": {
+    "dev": "bun --watch run src/main.tsx",
+    "build": "bun build src/main.tsx --target=bun --outdir=dist",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/react": "19.2.7"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1",
+    "commander": "^15.0.0",
+    "ink": "^7.0.5",
+    "ink-spinner": "^5.0.0",
+    "ink-text-input": "^6.0.0",
+    "react": "^19.2.7",
+    "zod": "^4.4.3"
   }
 }
