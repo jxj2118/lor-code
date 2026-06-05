@@ -1,9 +1,10 @@
 import React from 'react'
 import { Text } from 'ink'
+import type {CLIOptions} from "@/utils/config.ts";
 
 interface AppProps {
     version: string
-    opts: Record<string, unknown>
+    opts: CLIOptions
     prompt?: string
 }
 
