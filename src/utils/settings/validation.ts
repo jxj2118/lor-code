@@ -60,7 +60,7 @@ function getReceivedType(value: unknown): string {
 }
 
 export type SettingsWithErrors = {
-    settings: Partial<SettingsJson>
+    settings: SettingsJson
     errors: ValidationError[]
 }
 

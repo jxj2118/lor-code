@@ -8,7 +8,9 @@ export class LorCodeError extends Error {
 }
 export class ToolError extends LorCodeError {}
 export class PermissionError extends LorCodeError {}
-export class APIError extends LorCodeError {}
+export class APIError extends LorCodeError {
+     headers: Record<string, string> | undefined
+}
 export class ConfigError extends LorCodeError {}
 export class InputError extends LorCodeError {}
 export class CancellationError extends LorCodeError {}

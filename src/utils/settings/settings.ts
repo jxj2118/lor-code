@@ -162,11 +162,11 @@ export function getSettingsWithErrors(): SettingsWithErrors {
 function loadSettingsFromDisk(): SettingsWithErrors {
     // Prevent recursive calls to loadSettingsFromDisk
     if (isLoadingSettings) {
-        return { settings: {}, errors: [] }
+        return { settings: {} as SettingsJson, errors: [] }
     }
 
     const startTime = Date.now()
-    logger.info('settings_load_started')
+    logger.debug('settings_load_started')
 
     isLoadingSettings = true
     try {
@@ -210,13 +210,13 @@ function loadSettingsFromDisk(): SettingsWithErrors {
             }
         }
 
-        logger.info('settings_load_completed', {
+        logger.debug('settings_load_completed', {
             duration_ms: Date.now() - startTime,
             source_count: seenFiles.size,
             error_count: allErrors.length,
         })
 
-        return { settings: mergedSettings, errors: allErrors }
+        return { settings: mergedSettings as SettingsJson, errors: allErrors }
     } finally {
         isLoadingSettings = false
     }

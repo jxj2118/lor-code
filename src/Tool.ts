@@ -1,6 +1,6 @@
 //定义所有 Tool 必须实现的契约
-import type {ImageBlock, TextBlock} from "./types/message.ts";
 import {z} from "zod";
+import type {ImageBlockParam, TextBlockParam} from "@anthropic-ai/sdk/resources";
 
 /**
  * 工具调用结果 (Anthropic 协议).
@@ -14,7 +14,7 @@ export interface ToolResult {
 
 export type ToolResultContent =
     | string
-    | Array<TextBlock | ImageBlock>
+    | Array<TextBlockParam | ImageBlockParam>
 
 /**
  * 工具进度状态 (用于 UI 展示).

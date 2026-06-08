@@ -34,17 +34,13 @@ export async function runCli(argv: string[]) {
     // 2. 加载配置
     const settingsWithErrors = getSettingsWithErrors()
 
-    logger.info('Settings: ', settingsWithErrors)
-
     // 3. 决定日志级别
     if (opts.debug) {
         // logger.setLogLevel('debug')
     }
 
-    logger.info('CLI started', { version: '0.1.0', opts })
-
     // 4. 启动 UI
     render(
-        React.createElement(App, {version: '0.1.0', opts, prompt})
+        React.createElement(App, {version: '0.1.0', opts, prompt, settings: settingsWithErrors.settings})
     )
 }
